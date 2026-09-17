@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>직무 역량 정의 | 대웅바이오</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪜</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --surface: #FFFFFF;
+    --surface-2: #F6F5F2;
+    --ink: #182420;
+    --ink-soft: #5B675F;
+    --ink-faint: #8B958D;
+    --line: #E8E6DF;
+    --gold: #A9791A;
+    --gold-bg: rgba(169,121,26,0.09);
+    --lvl-1: #35544A;
+    --lvl-2: #4C6B49;
+    --lvl-3: #86722E;
+    --lvl-4: #A9791A;
+    --lvl-1-bg: rgba(53,84,74,0.08);
+    --lvl-2-bg: rgba(76,107,73,0.08);
+    --lvl-3-bg: rgba(134,114,46,0.08);
+    --lvl-4-bg: rgba(169,121,26,0.10);
+    --shadow: 0 1px 2px rgba(24,36,32,0.04), 0 8px 24px rgba(24,36,32,0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101B17;
+      --surface: #16241F;
+      --surface-2: #1B2B25;
+      --ink: #F2EEE4;
+      --ink-soft: #B7C1B9;
+      --ink-faint: #7C8983;
+      --line: #29392F;
+      --gold: #D8B34E;
+      --gold-bg: rgba(216,179,78,0.12);
+      --lvl-1: #6C8C7D;
+      --lvl-2: #7EA075;
+      --lvl-3: #B7A458;
+      --lvl-4: #D8B34E;
+      --lvl-1-bg: rgba(108,140,125,0.14);
+      --lvl-2-bg: rgba(126,160,117,0.14);
+      --lvl-3-bg: rgba(183,164,88,0.14);
+      --lvl-4-bg: rgba(216,179,78,0.16);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101B17;
+    --surface: #16241F;
+    --surface-2: #1B2B25;
+    --ink: #F2EEE4;
+    --ink-soft: #B7C1B9;
+    --ink-faint: #7C8983;
+    --line: #29392F;
+    --gold: #D8B34E;
+    --gold-bg: rgba(216,179,78,0.12);
+    --lvl-1: #6C8C7D;
+    --lvl-2: #7EA075;
+    --lvl-3: #B7A458;
+    --lvl-4: #D8B34E;
+    --lvl-1-bg: rgba(108,140,125,0.14);
+    --lvl-2-bg: rgba(126,160,117,0.14);
+    --lvl-3-bg: rgba(183,164,88,0.14);
+    --lvl-4-bg: rgba(216,179,78,0.16);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.35);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans KR', -apple-system, sans-serif;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 28px 90px;
+  }
+
+  .impact {
+    font-family: 'Black Han Sans', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 48px;
+  }
+  .hero-tag {
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+  .hero h1 {
+    margin: 0;
+    font-size: clamp(38px, 7vw, 58px);
+    line-height: 1.12;
+    color: var(--ink);
+  }
+  .hero p {
+    margin: 0;
+    max-width: 62ch;
+    color: var(--ink-soft);
+    font-size: 16px;
+  }
+
+  /* ---------- Section shell ---------- */
+  section { margin-bottom: 56px; }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .sec-num {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 22px;
+    color: var(--gold);
+  }
+  .sec-title {
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* ---------- 목적/원칙 ---------- */
+  .purpose-box {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 22px 26px;
+    font-size: 16.5px;
+    color: var(--ink);
+    box-shadow: var(--shadow);
+  }
+  .principles {
+    margin-top: 18px;
+    display: grid;
+    gap: 12px;
+  }
+  .principle {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--surface-2);
+    border-radius: 6px;
+    align-items: start;
+  }
+  .principle b {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 17px;
+    color: var(--ink-faint);
+  }
+  .principle span { color: var(--ink-soft); font-size: 15px; }
+  .principle strong.hl { color: var(--ink); font-weight: 600; }
+
+  /* ---------- 사다리 ---------- */
+  .ladder {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .rung {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px 18px 20px;
+    box-shadow: var(--shadow);
+    position: relative;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .rung::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    border-radius: 10px 10px 0 0;
+    background: var(--dot);
+  }
+  .rung[data-lvl="1"] { --dot: var(--lvl-1); }
+  .rung[data-lvl="2"] { --dot: var(--lvl-2); }
+  .rung[data-lvl="3"] { --dot: var(--lvl-3); }
+  .rung[data-lvl="4"] { --dot: var(--lvl-4); }
+  .rung .step {
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .rung h3 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    margin: 0 0 10px;
+    color: var(--dot);
+  }
+  .rung p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .rung .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--dot);
+    background: var(--dot);
+    background: color-mix(in srgb, var(--dot) 16%, transparent);
+    border: 1px solid var(--dot);
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+  }
+
+  /* ---------- 매트릭스 ---------- */
+  .lvl-select {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .lvl-btn {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all .15s ease;
+  }
+  .lvl-btn:hover { border-color: var(--dotc, var(--gold)); }
+  .lvl-btn[data-lvl="1"] { --dotc: var(--lvl-1); }
+  .lvl-btn[data-lvl="2"] { --dotc: var(--lvl-2); }
+  .lvl-btn[data-lvl="3"] { --dotc: var(--lvl-3); }
+  .lvl-btn[data-lvl="4"] { --dotc: var(--lvl-4); }
+  .lvl-btn.active {
+    background: var(--dotc, var(--gold));
+    border-color: var(--dotc, var(--gold));
+    color: #fff;
+  }
+  .lvl-btn.reset.active { background: var(--ink); border-color: var(--ink); }
+
+  .table-scroll {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 720px;
+    background: var(--surface);
+  }
+  thead th {
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    padding: 14px 18px;
+    background: var(--ink-faint);
+  }
+  thead th.lvl-col[data-lvl="1"] { background: var(--lvl-1); }
+  thead th.lvl-col[data-lvl="2"] { background: var(--lvl-2); }
+  thead th.lvl-col[data-lvl="3"] { background: var(--lvl-3); }
+  thead th.lvl-col[data-lvl="4"] { background: var(--lvl-4); }
+  thead th.row-label { background: var(--ink); }
+
+  tbody th {
+    text-align: left;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+    padding: 16px 18px;
+    background: var(--surface-2);
+    white-space: nowrap;
+    border-top: 1px solid var(--line);
+  }
+  tbody td {
+    padding: 16px 18px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    vertical-align: top;
+    width: 24%;
+    transition: background .15s ease, opacity .15s ease;
+  }
+  td.empty {
+    color: var(--ink-faint);
+    font-style: normal;
+    font-size: 12.5px;
+  }
+  td[data-lvl="1"].on { background: var(--lvl-1-bg); }
+  td[data-lvl="2"].on { background: var(--lvl-2-bg); }
+  td[data-lvl="3"].on { background: var(--lvl-3-bg); }
+  td[data-lvl="4"].on { background: var(--lvl-4-bg); }
+  .dim { opacity: 0.35; }
+
+  .leader-note {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- 활용가이드 ---------- */
+  .guide {
+    background: var(--gold-bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px 26px;
+  }
+  .guide h4 {
+    margin: 0 0 12px;
+    font-size: 15px;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .guide ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    display: grid;
+    gap: 8px;
+  }
+  .guide li strong { color: var(--ink); font-weight: 600; }
+
+  footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 720px) {
+    .wrap { padding: 40px 18px 70px; }
+    .ladder { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 460px) {
+    .ladder { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <h1 class="impact">직무 역량 정의</h1>
+    <p>직무 역량을 수립하여 해당 직무에 맞게 평가하고, 업무 가치와 생산성에 따라 보상하기 위함입니다. 안내받은 지원 단계의 역량 수준을 확인하고, 실제 수행 중인 업무와 성과를 STAR 기법으로 구체적으로 작성해보세요.</p>
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num impact">01</span>
+      <h2 class="sec-title">역량 정의 원칙</h2>
+    </div>
+    <div class="principles">
+      <div class="principle">
+        <b>1</b>
+        <span><strong class="hl">역량의 구성</strong> — 공통역량 + 직무역량으로 이루어집니다.</span>
+      </div>
+      <div class="principle">
+        <b>2</b>
+        <span><strong class="hl">공통역량</strong> — 대웅웨이(학습, 소통/협력, 실행) + 잡매니저·팀장 리더십으로 구성됩니다.</span>
+      </div>
+      <div class="principle">
+        <b>3</b>
+        <span><strong class="hl">직무역량</strong> — 각 팀별로 필요한 직무역량에 기반합니다.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num impact">02</span>
+      <h2 class="sec-title">직무 단계별 정의</h2>
+    </div>
+    <div class="ladder">
+      <div class="rung" data-lvl="1">
+        <div class="step">STEP 1</div>
+        <h3 class="impact">어쏘</h3>
+        <p>주변의 도움을 받아, 본인의 업무를 부족함 없이 수행해 낼 수 있는 수준</p>
+      </div>
+      <div class="rung" data-lvl="2">
+        <div class="step">STEP 2</div>
+        <h3 class="impact">잡멘토</h3>
+        <p>본인 업무에 능숙하고, 자신만의 성공 원리를 다른 사람에게 설명하고 가르치는 역량을 가진 사람</p>
+      </div>
+      <div class="rung" data-lvl="3">
+        <div class="step">STEP 3</div>
+        <h3 class="impact">잡매니저</h3>
+        <span class="badge">변화혁신과제로 작성 必</span>
+        <p>일의 본질을 알고 구체적인 변화혁신 사례가 있는 사람, 이를 다른 사람에게 설명해주고 변화시킨 사람</p>
+      </div>
+      <div class="rung" data-lvl="4">
+        <div class="step">STEP 4</div>
+        <h3 class="impact">팀장</h3>
+        <span class="badge">변화혁신과제로 작성 必</span>
+        <p>피드백과 코칭으로 팀원을 육성시키고, 팀의 성과를 책임지는 사람</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num impact">03</span>
+      <h2 class="sec-title">공통역량 매트릭스</h2>
+    </div>
+
+    <div class="lvl-select" id="lvlSelect">
+      <button class="lvl-btn reset active" data-lvl="0">전체 보기</button>
+      <button class="lvl-btn" data-lvl="1">어쏘</button>
+      <button class="lvl-btn" data-lvl="2">잡멘토</button>
+      <button class="lvl-btn" data-lvl="3">잡매니저</button>
+      <button class="lvl-btn" data-lvl="4">팀장</button>
+    </div>
+
+    <div class="table-scroll">
+      <table id="matrix">
+        <thead>
+          <tr>
+            <th class="row-label">역량</th>
+            <th class="lvl-col" data-lvl="1">어쏘</th>
+            <th class="lvl-col" data-lvl="2">잡멘토</th>
+            <th class="lvl-col" data-lvl="3">잡매니저</th>
+            <th class="lvl-col" data-lvl="4">팀장</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>학습</th>
+            <td data-lvl="1">본인 업무에 대해 충분히 이해하고 있으며, 업무를 수행함에 있어 기한 내 완료할 수 있다.</td>
+            <td data-lvl="2">본인 업무에 대한 지식과 노하우를 갖추고, 이를 체계화하여 동료에게 설명하고 가르치며 업무 개선으로 연결한다.</td>
+            <td data-lvl="3">담당 업무의 본질과 전반적인 구조를 이해하고, 전문성을 바탕으로 변화혁신 사례를 창출하여 조직 내 성공사례로 확산한다.</td>
+            <td data-lvl="4">담당 조직과 사업에 필요한 전문지식 및 최신 동향을 지속적으로 학습하고, 이를 조직의 업무체계와 구성원 육성에 적용한다.</td>
+          </tr>
+          <tr>
+            <th>소통/협력</th>
+            <td data-lvl="1">본인의 업무를 상사와 동료에게 잘 설명할 수 있으며 피드백 받은 내용은 보완하여 업무를 수행할 수 있다.</td>
+            <td data-lvl="2">본인의 업무를 구성원에게 명확히 설명하고, 유관부서의 다양한 의견과 정보를 취합하여 업무 개선 방향을 수립한다.</td>
+            <td data-lvl="3">경영층·본부장·팀장 등 주요 관계자와 회사의 방향을 공유하고, 구성원의 공감과 행동 변화를 이끌어낸다.</td>
+            <td data-lvl="4">경영층 및 유관부서와 회사의 방향과 주요 현안을 조율하고, 이를 팀원에게 명확히 전달하여 조직의 공감과 협업을 이끌어낸다.</td>
+          </tr>
+          <tr>
+            <th>실행</th>
+            <td data-lvl="1">업무기준과 SOP에 따라 업무를 진행할 수 있으며 궁금한 부분은 조언을 구하여 하기로 한 일을 끝까지 완수할 수 있다.</td>
+            <td data-lvl="2">축적된 경험과 노하우를 바탕으로 업무 기준과 SOP를 개선하고, 업무시간 단축이나 생산성 향상 등 구체적인 성과를 창출한다.</td>
+            <td data-lvl="3">업무의 문제와 개선과제를 주도적으로 발굴하고, 이슈 발생 시 유연하게 대응하며 구체적인 실행계획을 통해 업무방식의 변화와 조직 성과를 창출한다.</td>
+            <td data-lvl="4">팀의 목표 달성을 위해 문제를 선제적으로 파악하고, 실행계획과 업무 프로세스를 수립/안착시켜 조직 성과를 책임진다.</td>
+          </tr>
+          <tr>
+            <th>리더십</th>
+            <td data-lvl="1" class="empty">해당 없음</td>
+            <td data-lvl="2" class="empty">해당 없음</td>
+            <td data-lvl="3">구성원의 역량과 개선점을 파악하여 코칭하고, 구성원이 높은 성과를 창출할 수 있도록 육성한다.</td>
+            <td data-lvl="4">팀원의 역량과 성과 수준을 지속적으로 점검하고, 구체적인 피드백과 코칭을 통해 팀원과 조직의 성장을 이끈다.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="leader-note">※ 리더십 역량은 잡매니저 단계부터 요구됩니다.</div>
+  </section>
+
+  <section>
+    <div class="guide">
+      <h4>지원서 작성 시 이렇게 활용하세요</h4>
+      <ul>
+        <li>위 <strong>단계 선택 버튼</strong>을 눌러 <strong>안내받은 지원 단계</strong>의 역량 문장만 집중해서 확인하세요.</li>
+        <li>해당 문장에 맞춰 본인의 역량과 성과를 <strong>STAR 기법</strong>(상황·과제·행동·결과)으로 구체적으로 작성하세요.</li>
+        <li>표현은 <strong>‘할 수 있다’가 아니라 ‘하고 있다·한다’</strong>로 — 지금 실제로 수행 중인 내용을 써야 합니다.</li>
+        <li><strong>잡매니저 이상</strong>은 반드시 <strong>변화혁신과제</strong>로 지원서를 작성해주세요.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>대웅바이오 · 직무 역량 정의 &nbsp;|&nbsp; 직무재평가 지원 참고 자료</footer>
+</div>
+
+<script>
+  const btns = document.querySelectorAll('.lvl-btn');
+  const cells = document.querySelectorAll('#matrix tbody td');
+  const cols = document.querySelectorAll('#matrix thead th.lvl-col');
+  const rungs = document.querySelectorAll('.rung');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lvl = btn.getAttribute('data-lvl');
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      if (lvl === '0') {
+        cells.forEach(c => { c.classList.remove('on','dim'); });
+        rungs.forEach(r => r.style.transform = '');
+      } else {
+        cells.forEach(c => {
+          if (c.getAttribute('data-lvl') === lvl) {
+            c.classList.add('on');
+            c.classList.remove('dim');
+          } else {
+            c.classList.remove('on');
+            c.classList.add('dim');
+          }
+        });
+        rungs.forEach(r => {
+          r.style.transform = r.getAttribute('data-lvl') === lvl ? 'translateY(-4px)' : '';
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>
